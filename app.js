@@ -6,6 +6,7 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const Review = require('./models/review.js');
 const comments = require('./controllers/comments.js');
+const Comment = require('./models/comment');
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
