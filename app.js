@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const Review = require('./models/review.js');
+const comments = require('./controllers/comments.js');
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
