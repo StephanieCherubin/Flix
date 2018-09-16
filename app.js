@@ -8,7 +8,6 @@ const Review = require('./models/review.js');
 const comments = require('./controllers/comments.js');
 const Comment = require('./models/comment');
 
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 
@@ -56,14 +55,29 @@ app.post('/reviews', (req, res) => {
   })
 })
 
-// SHOW
-app.get('/reviews/:id', (req, res) => {
-  Review.findById(req.params.id).then((review) => {
-    res.render('reviews-show', { review: review })
+// CREATE Comment
+app.post('/reviews/comments', (req, res) => {
+  Comment.create(req.body).then(comment => {
+    res.redirect(`/reviews/${comment.reviewId}`);
   }).catch((err) => {
     console.log(err.message);
-  })
-})
+  });
+});
+
+// SHOW
+app.get('/reviews/:id', (req, res) => {
+  // find review
+  Review.findById(req.params.id).then(review => {
+    // fetch its comments
+    Comment.find({ reviewId: req.params.id }).then(comments => {
+      // respond with the template with both values
+      res.render('reviews-show', { review: review, comments: comments })
+    })
+  }).catch((err) => {
+    // catch errors
+    console.log(err.message)
+  });
+});
 
 // EDIT
 app.get('/reviews/:id/edit', (req, res) => {
