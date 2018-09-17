@@ -21,7 +21,7 @@ app.set('view engine', 'handlebars');
 
 // INDEX
 app.get('/', (req, res) => {
-  req.render('movies-index');
+  res.render('movies-index');
 })
 
 app.get('/reviews', (req, res) => {
