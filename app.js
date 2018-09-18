@@ -15,9 +15,9 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 // INDEX
-app.get('/', (req, res) => {
-  res.render('movies-index');
-})
+// app.get('/', (req, res) => {
+//   res.render('movies-index');
+// })
 
 app.get('/reviews', (req, res) => {
   Review.find()
@@ -104,6 +104,8 @@ app.delete('/reviews/:id', function (req, res) {
     console.log(err.message);
   })
 })
+
+require('./controllers/movies.js')(app)
 
 
 // Mongoose Connection
