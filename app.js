@@ -14,11 +14,6 @@ app.use(methodOverride('_method'))
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-// let reviews = [
-//   { title: "Great Review" },
-//   { title: "Next Review" }
-// ]
-
 // INDEX
 app.get('/', (req, res) => {
   res.render('movies-index');
@@ -119,8 +114,10 @@ mongoose.connect(
    { useNewUrlParser: true }
 );
 
-app.listen(3000, () => {
-  console.log('App listening on port 3000!')
+const port = process.env.PORT || '3000';
+
+app.listen(port, () => {
+  console.log(`App listening on ${port}`)
 })
 
 module.exports = app;

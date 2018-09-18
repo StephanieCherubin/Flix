@@ -1,5 +1,9 @@
+const express = require('express');
+const router = express.Router();
 const MovieDb = require('moviedb-promise')
-const moviedb = new MovieDb('your api key')
+const moviedb = new MovieDb('82726f7e5a0d46689161e30a12e353c0')
+const Review = require('../models/review.js');
+function movies(app){
 
 app.get('/', (req, res) => {
   moviedb.miscNowPlayingMovies().then(response => {
@@ -13,3 +17,5 @@ app.get('/movies/:id', (req, res) => {
         res.render('movies-show', { movie: movie });
     }).catch(console.error)
 })
+}
+module.exports = movies;
