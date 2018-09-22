@@ -1,11 +1,15 @@
 <h1>Now Playing</h1>
-
+<br>
 {{#each movies}}
   <li>{{this.title}}</li>
   <a href="/movies/{{this.id}}">
       <img src='https://image.tmdb.org/t/p/w400{{this.poster_path}}'/>
       </a>
+  <br>
+  <br>
       <p>{{this.overview}}</p>
+      <br>
+      <hr>
 {{/each}}
 
 <div class="embed-responsive embed-responsive-21by9">

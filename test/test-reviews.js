@@ -1,15 +1,17 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const app = require('../app');
-const should = chai.should();
 const Review = require('../models/review.js');
 const sampleReview =     {
     "title": "Super Sweet Review",
     "movie-title": "La La Land",
-    "description": "A great review of a lovely movie."
+    "description": "A great review of a lovely movie.",
+    "rating": "****",
+    "movieId": sampleMovieId
 }
 
 chai.use(chaiHttp);
+chai.should();
 
 describe('Reviews', ()  => {
 
