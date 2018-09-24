@@ -5,14 +5,22 @@ const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const Review = require('./models/review.js');
-const comments = require('./controllers/comments.js');
-const Comment = require('./models/comment');
-const Movie = require('./controllers/movies.js')
+
+//FIXME: phyllis changed variable names, go update where you use them
+const reviewController = require('./controllers/reviews.js')
+const commentController = require('./controllers/comments.js');
+const CommentSchema = require('./models/comment');
+const movieController = require('./controllers/movies.js')
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+
+app.use(commentController);
+app.use(reviewController);
+
 
 // INDEX
 // app.get('/', (req, res) => {

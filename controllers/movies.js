@@ -26,13 +26,7 @@ function movies(app){
       }).catch(console.error)
     })
 
-    app.get('/movies/:movieId/reviews/new', (req, res) => {
-      res.render('reviews-new', { movieId: req.params.movieId })
-    })
 
-    app.post('/movies/:movieId/reviews', (req, res) => {
-      console.log(req.body)
-    })
 
 // end movie function to export
 }
