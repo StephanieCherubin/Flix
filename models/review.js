@@ -10,7 +10,8 @@ const Schema = mongoose.Schema;
 const Review = mongoose.model('Review', {
   title: String,
   description: String,
-  movieTitle: String
+  movieTitle: String,
+  movieId: { type: String, required: true}
 });
 
 // module.exports = mongoose.model('Review', ReviewSchema);
