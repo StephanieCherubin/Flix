@@ -12,25 +12,16 @@ const commentController = require('./controllers/comments.js');
 const CommentSchema = require('./models/comment');
 const movieController = require('./controllers/movies.js')
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(methodOverride('_method'))
-
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride('_method'))
 app.use(commentController);
 app.use(reviewController);
-
-
-// INDEX
-// app.get('/', (req, res) => {
-//   res.render('movies-index');
-// })
+app.use(moviesController);
 
 Movie(app);
-
-
-
 
 // Mongoose Connection
 const mongoUri =
