@@ -1,12 +1,11 @@
 const express = require('express');
 const app = express();
 const Review = require('../models/review.js');
-const commentController = require('./models/comment.js')
+const Comment = require('../models/comment.js')
 
-module.exports = (app) => {
 
     // NEW
-    app.get('/movies/:id/reviews/new', (req, res) => {
+    app.get('/movies/:movieId/reviews/new', (req, res) => {
         Review.find({movieId: req.params.id}).then((movie) =>{
             res.render('reviews-new', { movieId: req.params.id })
         })
@@ -64,4 +63,5 @@ module.exports = (app) => {
         console.log(err.message);
       })
     })
-}
+
+    module.exports = app;

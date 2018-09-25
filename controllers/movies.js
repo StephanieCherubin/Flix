@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const app = express();
+// const app = express();
+
 const MovieDb = require('moviedb-promise')
 const moviedb = new MovieDb('82726f7e5a0d46689161e30a12e353c0')
 const Review = require('../models/review.js');
+
 // Start Movie function to export routes
 function movies(app){
 
@@ -17,7 +19,6 @@ function movies(app){
     })
 
 // SHOW
-
     app.get('/movies/:id', (req, res) => {
       moviedb.movieInfo({ id: req.params.id }).then(movie => {
         Review.find({ movieId: req.params.id }).then(reviews => {
@@ -25,8 +26,6 @@ function movies(app){
         })
       }).catch(console.error)
     })
-
-
 
 // end movie function to export
 }
