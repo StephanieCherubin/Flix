@@ -9,7 +9,8 @@ const reviewController = require('./controllers/reviews.js')
 const ReviewSchema = require('./models/review.js');
 const CommentSchema = require('./models/comment.js');
 const commentController = require('./controllers/comments.js');
-const movieController = require('./controllers/movies.js')(app)
+require('./controllers/movies.js')(app);
+require('./controllers/reviews.js')(app);
 
 const port = process.env.PORT || 3000;
 

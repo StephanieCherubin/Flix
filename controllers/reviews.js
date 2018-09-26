@@ -1,28 +1,26 @@
 const express = require('express');
-const app = express();
+const router =  express.Router();
+
 const Review = require('../models/review.js');
-const Comment = require('../models/comment.js')
+const Comment = require('../models/comment.js');
 
-
+module.exports = (app) => {
     // NEW
     app.get('/movies/:movieId/reviews/new', (req, res) => {
-        Review.find({movieId: req.params.id}).then((movie) =>{
-            res.render('reviews-new', { movieId: req.params.id })
-        })
+      render('reviews-new', { movieId: req.params.movieId })
     })
 
     // CREATE
     app.post('/movies/:movieId/reviews', (req, res) => {
       Review.create(req.body).then((review) => {
-        console.log(review)
-        res.redirect(`/reviews/${review._id}`) // Redirect to reviews/:id
+        res.redirect(`/movies/${review.movieId}`) // Redirect to reviews/:id
       }).catch((err) => {
         console.log(err.message)
       })
     })
 
     // SHOW
-    app.get('/reviews/:id', (req, res) => {
+    app.get('/movies/:movieId/reviews/:id', (req, res) => {
       // find review
       Review.findById(req.params.id).then(review => {
         // fetch its comments
@@ -64,4 +62,6 @@ const Comment = require('../models/comment.js')
       })
     })
 
-    module.exports = app;
+}
+
+module.exports = movies;
