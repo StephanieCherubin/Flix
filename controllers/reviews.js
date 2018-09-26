@@ -7,8 +7,13 @@ const Comment = require('../models/comment.js');
 module.exports = (app) => {
     // NEW
     app.get('/movies/:movieId/reviews/new', (req, res) => {
-      render('reviews-new', { movieId: req.params.movieId })
-    })
+      Review.create({ movieId: req.params.movieId }).then((movie) => {
+        console.log(movie);
+        res.render('reviews-new', { movie, movieId: req.params.movieId});
+      }).catch((err) => {
+        console.log(err.message)
+      })
+    });
 
     // CREATE
     app.post('/movies/:movieId/reviews', (req, res) => {
@@ -63,5 +68,3 @@ module.exports = (app) => {
     })
 
 }
-
-module.exports = movies;

@@ -9,8 +9,7 @@ const reviewController = require('./controllers/reviews.js')
 const ReviewSchema = require('./models/review.js');
 const CommentSchema = require('./models/comment.js');
 const commentController = require('./controllers/comments.js');
-require('./controllers/movies.js')(app);
-require('./controllers/reviews.js')(app);
+const movieController = require('./controllers/movies.js');
 
 const port = process.env.PORT || 3000;
 
@@ -22,11 +21,8 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 // routes
-// app.use(commentController);
-// app.use('/', reviewController);
-// app.use(movieController);
-
-// movies(app);
+reviewController(app)
+movieController(app)
 
 // Mongoose Connection
 const mongoUri =
