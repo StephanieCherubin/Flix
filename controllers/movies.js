@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-// const app = express();
 
 const MovieDb = require('moviedb-promise')
 const moviedb = new MovieDb('82726f7e5a0d46689161e30a12e353c0')

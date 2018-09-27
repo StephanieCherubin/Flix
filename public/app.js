@@ -5,16 +5,17 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override')
 const bodyParser = require('body-parser');
 
-const reviewController = require('./controllers/reviews.js')
-const ReviewSchema = require('./models/review.js');
-const CommentSchema = require('./models/comment.js');
-const commentController = require('./controllers/comments.js');
-const movieController = require('./controllers/movies.js');
+const reviewController = require('../controllers/reviews.js')
+const ReviewSchema = require('../models/review.js');
+const CommentSchema = require('../models/comment.js');
+const commentController = require('../controllers/comments.js');
+const movieController = require('../controllers/movies.js');
 
 const port = process.env.PORT || 3000;
 
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 // Middleware
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -32,5 +33,3 @@ mongoose.connect( mongoUri, { useNewUrlParser: true });
 app.listen(port, () => {
   console.log(`App listening on ${port}`)
 });
-
-// module.exports = app;
