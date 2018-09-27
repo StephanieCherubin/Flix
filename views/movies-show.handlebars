@@ -1,3 +1,6 @@
+<!-- Movies-show -->
+<!-- This is the page we see when you click on a single movie -->
+
 <div class="row">
     <div class="text-right">
         <a href="/movies/{{movie.id}}/reviews/new" class="btn btn-primary">Write Review</a>
@@ -15,7 +18,10 @@
   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{movie.trailer_youtube_id}}?rel=0"></iframe>
 </div>
 
+<!-- Under the movie we see a list of reviews -->
+<!-- This is there we pass in the review partial -->
 <h3>Reviews</h3>
+
 {{#each reviews}}
   {{> review}}
 {{/each}}
