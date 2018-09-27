@@ -25,8 +25,7 @@ reviewController(app)
 movieController(app)
 
 // Mongoose Connection
-const mongoUri =
-   process.env.MONGODB_URI || "mongodb://localhost:27017/RottenPotatoes";
+const mongoUri = process.env.MONGODB_URI || "mongodb://localhost:27017/RottenPotatoes";
 
 mongoose.connect( mongoUri, { useNewUrlParser: true });
 
