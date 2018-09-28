@@ -27,7 +27,7 @@ document.getElementById("newComment").addEventListener("submit", e => {
 
   axios.post('/user', comment)
   .then(function (response) {
-    // wait for the success response from the server
+    // wait for the success response from the servera
     console.log(response);
     // remove the information from the form
     this.reset();
@@ -38,11 +38,7 @@ document.getElementById("newComment").addEventListener("submit", e => {
          <div class="card-block">
            <h4 class="card-title">${response.title}</h4>
            <p class="card-text">${response.content}</p>
-           <p>
-              <form method="POST" action="/reviews/comments/${response._id}?_method=DELETE">
-                <button class="btn btn-link" type="submit">Delete</button>
-              </form>
-           </p>
+           <button class="btn btn-link" id="deleteComment" data-comment-id=${response._id}>Delete</button>
          </div>
        </div>
       `
