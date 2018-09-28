@@ -14,6 +14,12 @@
     <!-- Comment form -->
     {{> comment-form}}
 
+    <div id="comments">
+      {{#each comments}}
+        {{> comment}}
+      {{/each}}
+    </div>
+
         <hr>
 
         <!-- Show Comments -->
