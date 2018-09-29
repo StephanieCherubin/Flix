@@ -44,4 +44,18 @@ document.getElementById("newComment").addEventListener("submit", e => {
       `
     );
   })
+
+  document.querySelector('.delete-comment').addEventListener('click', (e) => {
+    console.log("click!")
+    let commentId = this.getAttribute('data-comment-id')
+    axios.delete(`/reviews/comments/${commentId}`)
+      .then(response => {
+        console.log(response)
+      })
+      .catch(error => {
+        console.log(error)
+      });
+  })
 });
+
+
