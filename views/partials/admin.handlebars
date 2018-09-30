@@ -5,6 +5,7 @@
       <th scope="col">_id</th>
       <th scope="col">Title</th>
       <th scope="col">Description</th>
+      <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +14,7 @@
         <th scope="row">1</th>
         <td>{{this.title}}</td>
         <td>{{this.description}}</td>
+        <td><a href="#" id="deleteReview" data-review-id=${this._id}>Delete</a></td>
       </tr>
     {{/each}}
   </tbody>
