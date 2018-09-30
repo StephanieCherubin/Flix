@@ -1,14 +1,10 @@
-const express = require('express');
-const router = express.Router();
-
 const MovieDb = require('moviedb-promise')
 const moviedb = new MovieDb('82726f7e5a0d46689161e30a12e353c0')
 const Review = require('../models/review.js');
 
-// Start Movie function to export routes
-function movies(app){
+module.exports = (app) => {
 
-    // INDEX
+// INDEX
     app.get('/', (req, res) => {
       moviedb.miscNowPlayingMovies().then(response => {
           console.log(response.results)
@@ -25,7 +21,4 @@ function movies(app){
         })
       }).catch(console.error)
     })
-
-// end movie function to export
 }
-module.exports = movies;

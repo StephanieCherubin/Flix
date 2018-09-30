@@ -2,17 +2,8 @@
   <div class="card-block">
     <h4 class="card-title">{{this.title}}</h4>
     <p class="card-text">{{this.content}}</p>
-    <!-- Delete link -->
-    <!-- <p> -->
-        <!-- <form method="POST" action="/reviews/comments/{{this._id}}?_method=DELETE"> -->
-
-        <!-- <form action="#" id="newComment">
-            <button class="btn btn-link delete-comment" data-comment-id="{{this._id}}">Delete</button>
-        </form> -->
-
-        <!-- Delete link -->
-        <p><button class="btn btn-link" id="delete-comment" data-comment-id=${response._id}>Delete</button></p>
-
-    <!-- </p> -->
+        <p>
+            <button class="btn btn-link" id="delete-comment" data-comment-id=${response._id}>Delete</button>
+        </p>
   </div>
 </div>

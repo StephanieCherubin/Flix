@@ -1,12 +1,18 @@
 <div class="row">
-  <div class="col-sm-6 col-sm-offset-3">
-    <form method="post" action="/movies/{{movieId}}/reviews">
-      {{> reviews-form }}
-      <!-- BUTTON -->
-      <input type="hidden" name="movieId" value="{{movieId}}">
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">Save Review</button>
-      </div>
+    <div class="col-sm-6 col-sm-offset-3">
+        <img src='https://image.tmdb.org/t/p/w400{{this.poster_path}}' alt="{{this.title}}"/>
+    <form action="/movies/{{movieId}}/reviews" method="post">
+
+        {{> reviews-form}}
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Save Review</button>
+        </div>
     </form>
-  </div>
+    <form action="/movies/{{movieId}}" method="get">
+        <div class="form-group">
+            <button class="btn btn-primary" type="cancel" name="button">Cancel</button>
+        </div>
+    </form>
+    </div>
 </div>
