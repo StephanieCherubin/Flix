@@ -1,4 +1,7 @@
 // listen for a form submit event
+
+/* ONLY FOR COMMENTS!!!!!!! */
+
 document.getElementById("newComment").addEventListener("submit", e => {
     // prevent the default form behavior
     e.preventDefault();

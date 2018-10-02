@@ -5,21 +5,21 @@ const MovieDb = require('moviedb-promise')
 const moviedb = new MovieDb('82726f7e5a0d46689161e30a12e353c0')
 
 module.exports = (app) => {
-    // NEW
+    // NEW review template
     app.get('/movies/:movieId/reviews/new', (req, res) => {
       Review.create({ movieId: req.params.movieId }).then((movie) => {
-        res.render('reviews-new', { movie, movieId: req.params.movieId});
+        res.render('reviews-new', { movieId: req.params.movieId});
       }).catch((err) => {
         console.log(err.message)
       })
     });
 
-    // CREATE
+    // CREATE saves review in db
     app.post('/movies/:movieId/reviews', (req, res) => {
       Review.create(req.body).then((review) => {
-        res.redirect(`/movies/${review.movieId}`)
+        res.redirect(`/movies/${review.movieId}`);
       }).catch((err) => {
-        console.log(err.message)
+        console.log(err.message);
       })
     })
 
@@ -40,10 +40,11 @@ module.exports = (app) => {
 
     // EDIT
     app.get('/movies/:movieId/reviews/:id/edit', (req, res) => {
-      Review.findById(req.params.id, function(err, review) {
-        res.render('reviews-edit', {review: review});
-      })
-    })
+      Review.findById(req.params.id, (err, review) => {
+        res.render('reviews-edit', {review: review });
+      }).catch(err => { console.log(err) });
+    });
+
 
     // UPDATE
     app.put('/movies/:movieId/reviews/:id', (req, res) => {
@@ -58,8 +59,9 @@ module.exports = (app) => {
 
     // DELETE
     app.delete('/movies/:movieId/reviews/:id', function (req, res) {
+        console.log(req.params.id)
       Review.findByIdAndRemove(req.params.id).then((review) => {
-        res.redirect(`/movies/${review.movieId}`);
+        res.redirect(`/movies/:movieId/reviews/${review._id}`);
       }).catch((err) => {
         console.log(err.message);
       })

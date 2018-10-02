@@ -1,14 +1,15 @@
 <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-        <img src='https://image.tmdb.org/t/p/w400{{this.poster_path}}' alt="{{this.title}}"/>
-    <form action="/movies/{{movieId}}/reviews" method="post">
 
+    <form action="/movies/{{movieId}}/reviews" method="post">
+        <!-- '/movies/:movieId/reviews/new' -->
         {{> reviews-form}}
 
         <div class="form-group">
             <button class="btn btn-primary" type="submit">Save Review</button>
         </div>
     </form>
+
     <form action="/movies/{{movieId}}" method="get">
         <div class="form-group">
             <button class="btn btn-primary" type="cancel" name="button">Cancel</button>

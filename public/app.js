@@ -23,8 +23,8 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 // routes
-reviewController(app)
-movieController(app)
+reviewController(app);
+movieController(app);
 
 // Mongoose Connection
 const mongoUri = process.env.MONGODB_URI || "mongodb://localhost:27017/RottenPotatoes";
