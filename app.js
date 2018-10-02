@@ -5,11 +5,11 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override')
 const bodyParser = require('body-parser');
 
-const reviewController = require('../controllers/reviews.js')
-const ReviewSchema = require('../models/review.js');
-const CommentSchema = require('../models/comment.js');
-const commentController = require('../controllers/comments.js');
-const movieController = require('../controllers/movies.js');
+const reviewController = require('./controllers/reviews.js')
+const ReviewSchema = require('./models/review.js');
+const CommentSchema = require('./models/comment.js');
+const commentController = require('./controllers/comments.js');
+const movieController = require('./controllers/movies.js');
 
 const port = process.env.PORT || 3000;
 
