@@ -1,17 +1,16 @@
 <h1>Now Playing</h1>
+
 <div class="row">
     {{#each movies}}
+    <div class="col-sm-3">
       <h2>{{this.title}}</h2>
       <a href="/movies/{{this.id}}">
-          <img src='https://image.tmdb.org/t/p/w400{{this.poster_path}}' alt="{{this.title}}"/>
+          <img class="img-responsive" src='https://image.tmdb.org/t/p/w92{{this.poster_path}}' alt="{{this.title}}"/>
           </a>
       <br>
       <br>
           <p>{{this.overview}}</p>
           <br>
+    </div>
     {{/each}}
-</div>
-
-<div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{movie.trailer_youtube_id}}?rel=0"></iframe>
 </div>
