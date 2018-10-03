@@ -13,12 +13,29 @@ module.exports = (app) => {
       }).catch(console.error)
     })
 
+// SAME OUTCOME AS ABOVE
+    app.get('/movies', (req, res) => {
+            moviedb.miscNowPlayingMovies()
+            .then(response => {
+                res.render('movies-index', { movies: response.results });
+            })
+            .catch(console.error)
+        });
+
 // SHOW
     app.get('/movies/:id', (req, res) => {
       moviedb.movieInfo({ id: req.params.id }).then(movie => {
-        Review.find({ movieId: req.params.id }).then(reviews => {
-          res.render('movies-show', { movie: movie, reviews: reviews });
-        })
+        moviedb.movieTrailers({ id: req.params.id }).then(videos => {
+          movie.trailer_youtube_id = videos.youtube[0].source
+          console.log('VIDEOS.TRAILER_YOUTUBE_ID', videos.trailer_youtube_id)
+          renderTemplate(movie)
+        });
+
+        function renderTemplate(movie)  {
+          res.render('movies-show', { movie: movie });
+        }
       }).catch(console.error)
-    })
+    });
 }
+
+

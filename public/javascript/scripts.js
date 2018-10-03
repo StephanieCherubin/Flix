@@ -1,7 +1,5 @@
 // listen for a form submit event
 
-/* ONLY FOR COMMENTS!!!!!!! */
-
 document.getElementById("newComment").addEventListener("submit", e => {
     // prevent the default form behavior
     e.preventDefault();
@@ -14,7 +12,6 @@ document.getElementById("newComment").addEventListener("submit", e => {
     }
 
     // use axios to initialize a post request and send in the form data
-
     axios.post('/reviews/comments', comment)
       .then(function (response) {
         // wait for the success response from the server

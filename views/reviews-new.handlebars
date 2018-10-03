@@ -2,9 +2,7 @@
     <div class="col-sm-6 col-sm-offset-3">
 
     <form action="/movies/{{movieId}}/reviews" method="post">
-        <!-- '/movies/:movieId/reviews/new' -->
         {{> reviews-form}}
-
         <div class="form-group">
             <button class="btn btn-primary" type="submit">Save Review</button>
         </div>
@@ -15,5 +13,6 @@
             <button class="btn btn-primary" type="cancel" name="button">Cancel</button>
         </div>
     </form>
+
     </div>
 </div>
