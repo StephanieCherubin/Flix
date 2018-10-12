@@ -7,7 +7,7 @@ const sampleReview =     {
     "movie-title": "La La Land",
     "description": "A great review of a lovely movie.",
     "rating": "****",
-    "movieId": sampleMovieId
+    "movieId": "sampleMovieId"
 }
 
 chai.use(chaiHttp);
@@ -71,7 +71,7 @@ describe('Reviews', ()  => {
 
   // TEST EDIT
   it('should edit a SINGLE review on /reviews/<id>/edit GET', (done) => {
-    var review = new Review(sampleReview);
+    var review = new Review(sampleReview)
      review.save((err, data) => {
        chai.request(app)
          .get(`/reviews/${data._id}/edit`)

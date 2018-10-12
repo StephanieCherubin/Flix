@@ -34,3 +34,5 @@ mongoose.connect( mongoUri, { useNewUrlParser: true });
 app.listen(port, () => {
   console.log(`App listening on ${port}`)
 });
+
+module.exports = app
