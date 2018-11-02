@@ -17,6 +17,7 @@ app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/public'));
 
 // Middleware
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
