@@ -3,14 +3,14 @@
 <div class="row">
     {{#each movies}}
     <div class="col-sm-3">
-      <h3><a href="/movies/{{this.id}}">{{this.title}}</a></h3>
+      <h3>{{this.title}}</h3>
       <a href="/movies/{{this.id}}">
         <img class="img-responsive" src='https://image.tmdb.org/t/p/original{{this.poster_path}}' alt="{{this.title}}"/>
       </a>
 
       <br>
       <br>
-          <p>{{this.overview}}</p>
+          <p>{{this.overview}}</p></br>
     </div>
     {{/each}}
 </div>
